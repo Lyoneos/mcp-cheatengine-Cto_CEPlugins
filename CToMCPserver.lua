@@ -946,7 +946,7 @@ function SocketAPI.Manager:startServer(port)
   -- 允许端口重用
   self.server:setoption("reuseaddr", true)
   
-  local result, err = self.server:bind("*", port)
+  local result, err = self.server:bind("0.0.0.0", port)
   if not result then
     SocketAPI.Utils.log("绑定端口失败: " .. tostring(err), "ERROR")
     SocketAPI.status.lastError = "绑定端口失败: " .. tostring(err)
